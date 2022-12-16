@@ -1,0 +1,29 @@
+<%-include("header");-%>
+<div class="box" id="heading">
+    <h1 >CUSTOM LISTS</h1>
+</div>
+<div class="box" id="heading">
+    <a href="/"><h3> Go back to TO-DO List</h3></a>
+</div>
+<div class="box">
+<form class="item" action="/hii" method="post">
+    <input type="text" name="newList" placeholder="Click to add custom list" autocomplete="off" required>
+    <button type="submit" name="button">+</button>
+</form>
+</div>
+
+<div class="box">
+    <div id="heading"><h1>Manage Custom Lists</h1></div>
+    <% customItems.forEach(function(it){ %>
+        <form action="/delete" method="post">
+            <div class="item">
+            <input name="checkBox" value="<%=it.id%>" onchange="this.form.submit()" type="checkbox">
+            <% let a = "/"+it.name+"" %>
+            <a href=<%=a%>><p><%=it.name%></p></a>
+        </div>
+        <input type="hidden" name="button" value="custom">
+    </form>
+    <% }) %>
+</div>
+
+<%-include("footer");-%>

@@ -1,0 +1,27 @@
+<%-include("header");-%>
+
+    <div class="box" id="heading">
+        <h1 ><%=headIng%></h1>
+        <h1 ><%=kindOfday%></h1>
+    </div>
+    <div class="box" id="heading">
+        <a href="/custom"><h2 >Make your own Custom List</h2></a>
+    </div>
+
+    <div class="box">
+        <% newi.forEach(function(it){ %>
+        <form action="/delete" method="post">
+            <div class="item">
+                <input name="checkBox" value="<%=it.id%>" onchange="this.form.submit()" type="checkbox">
+                <p><%=it.items%></p>
+            </div>
+            <input type="hidden" name="button" value="<%=headIng%>">
+        </form>
+        <% }) %>
+    <form class="item" action="/" method="post">
+        <input type="text"name="newItem" placeholder="New Item" autocomplete="off" required>
+        <button type="submit" name="button" value="<%=headIng%>">+</button>
+    </form>
+    </div>
+
+<%-include("footer");-%>
