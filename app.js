@@ -8,7 +8,8 @@ const date=require(__dirname+"/date.js");
 const _=require("lodash");
 const mongoose=require("mongoose");
 mongoose.set('strictQuery', false);
-mongoose.connect("mongodb://localhost:27017/todoDB");
+// mongodb://localhost:27017/todoDB
+mongoose.connect("mongodb+srv://prashantkumar010704:prashant123@cluster0.hesmolu.mongodb.net/?retryWrites=true&w=majority");
 const listSchema = mongoose.Schema({
     items:String
 })
