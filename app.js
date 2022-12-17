@@ -60,12 +60,17 @@ app.get("/",function(req,res){
     })
 })
 app.get("/custom",function(req,res){
-    Lista.find({},function(err,foundItam){
+    Lista.deleteOne({name: "Favicon.ico"},function(err){
         if(!err)
         {
-            navDB=foundItam
-            // console.log(navDB);
-            res.render("custom",{customItems: navDB});
+            Lista.find({},function(err,foundItam){
+                if(!err)
+                {
+                    navDB=foundItam
+                    // console.log(navDB);
+                    res.render("custom",{customItems: navDB});
+                }
+            })
         }
     })
 })

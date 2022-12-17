@@ -15,6 +15,7 @@
 <div class="box">
     <div id="heading"><h1>Manage Custom Lists</h1></div>
     <% customItems.forEach(function(it){ %>
+        <!-- <% if(it.name==="Favicon.ico") %> -->
         <form action="/delete" method="post">
             <div class="item">
             <input name="checkBox" value="<%=it.id%>" onchange="this.form.submit()" type="checkbox">
